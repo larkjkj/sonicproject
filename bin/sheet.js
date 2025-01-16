@@ -1,4 +1,7 @@
-export default class sheet() {
+let width;
+let height;
+
+export default class Sheet {
 	constructor(width, height) {
 		this.width = width;
 		this.height = height;
@@ -34,6 +37,6 @@ export default class sheet() {
 	
 			this.sheet.draw(x, y);
 		}
-	}
+	}	
 }
 
