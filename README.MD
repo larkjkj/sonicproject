@@ -9,5 +9,6 @@ make -j9
 ```
 
 ***Current Progress(0.1%)***
+![alt text](https://github.com/larkjkj/sonicproject/blob/master/progress.png?raw=true)
 
 This should do the work
