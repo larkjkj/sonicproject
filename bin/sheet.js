@@ -1,6 +1,11 @@
 let width;
 let height;
 
+//
+// Need some more attention
+// Proablly re writing from zero, but working from now on :)
+//
+
 export default class Sheet {
 	constructor(width, height) {
 		this.width = width;
