@@ -4,6 +4,8 @@ let xpos;
 let ypos;
 let direction;
 
+let pad = Pads.get();
+
 const acc = 1;
 const mtop = 6;
 const frc = acc;
@@ -21,20 +23,17 @@ export default class Sonic {
 		this.direction = direction;
 	}
 	moveset() {
-		sprite.Sprite("sonic/idle_sheet.png", 0, 0, 24, 12, this.x, this.y, 1)
-	}
-	moveLeft() {	
-		if (x > -mtop) {
-			this.x -= this.acc;
-			this.direction = this.width * -1;
+		if (pad.pressed(Pads.LEFT)) {
+			if (x > -mtop) {
+				this.x -= this.acc;
+				this.direction = this.width * -1;
+			}
 		}
-		sprite.Sprite("sonic/idle_sheet.png", 0, 0, 24, 12, this.x, this.y, 1)
-	}
-	moveRight() {
-		if (x < mtop) {
-			this.x += acc;
-			this.direction = this.width * 1;
+		if (pad.pressed(Pads.RIGHT)) {
+			if (x < mtop) {
+				this.x += acc;
+				this.direction = this.width * 1;
+			}
 		}
-		sprite.Sprite("sonic/idle_sheet.png", 0, 0, 24, 12, this.x, this.y, 1)
 	}
 }
