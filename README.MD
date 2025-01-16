@@ -8,4 +8,6 @@ Made in javascript BTW
 make -j9
 ```
 
+***Current Progress(0.1%)***
+
 This should do the work
