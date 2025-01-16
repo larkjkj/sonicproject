@@ -11,6 +11,5 @@ os.setInterval(() => {
 	print(ram_usage.used);
 	Screen.clear();
 		sonic.createSelf();
-		sonic.moveset();
 	Screen.flip();
 })
