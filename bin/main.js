@@ -1,12 +1,12 @@
-import Sheet from "sheet.js"
+import Draw from "draw.js"
 import Sonic from "sonic.js"
 
 const sonic = new Sonic;
-const sprite = new Sheet;
+const draw = new Draw;
 const ram_usage = System.getMemoryStats();
 
 function createSonic() {
-	let sonicIdle = sprite.Sprite("sonic/idle_sheet.png", 320, 244, 24, 32, 320, 244, 1);	
+	draw.Sprite("sonic/idle_sheet", 0, 0, 24, 32, sonic.this.x, sonic.this.y, 0);
 	sonic.moveset();
 }
 
