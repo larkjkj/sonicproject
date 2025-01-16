@@ -2,7 +2,7 @@ A sonic project that i'm making with Athena Engine
 
 Made in javascript BTW
 
-*Make sure you already have PS2SDK installed*
+*Make sure you already have PS2SDK installed*,
 This should do the work
 ``` 
 make -j9
