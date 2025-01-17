@@ -1,16 +1,37 @@
-import { Player } from "player.js"
+import { Player } from "player.js";
+import { Solid } from "collision.js";
 
-const ram_usage = System.getMemoryStats();
-const color_white = Color.new(255, 255, 255, 128);
+const color_grey = Color.new(50, 50, 50, 128);
 
-let player = new Player;
-let pad = Pads.get();
+const memory = System.getMemoryStats();
+const pad = Pads.get();
+const player = new Player();
+const player2 = new Player();
+const solid = new Solid();
 
-os.setInterval(() => {
-	Screen.clear();
+while (true) {
+  Screen.clear(color_grey);
 
-	print(ram_usage.used);
-	player.move();
-	
-	Screen.flip();
-})
+  pad.update();
+  // Simulate collision
+  if (pad.pressed(Pads.LEFT)) {
+    player2.move(1);
+  }
+
+  if (pad.pressed(Pads.RIGHT)) {
+    player2.move(-1);
+  }
+
+  print(memory.used);
+  player.draw();
+  if (pad.pressed(Pads.LEFT)) {
+    player.move(-1);
+  }
+  if (pad.pressed(Pads.RIGHT)) {
+    player.move(1);
+  }
+
+  solid.createself(320, 224, 32, 32);
+  player2.draw();
+  Screen.flip();
+}
