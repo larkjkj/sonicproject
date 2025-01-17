@@ -1,15 +1,14 @@
+let x, y, w, h;
+
 export class Solid {
-  constructor(x, y, width, height, passtrough) {
+  constructor(x, y, w, h) {
     this.x = x;
     this.y = y;
-
-    this.width = width;
-    this.height = height;
-
-    passtrough = this.passtrough;
   }
+}
 
-  createself(px, py, rw, rh) {
-    Draw.rect(px, py, rw, rh, Color.new(255, 255, 255, 128));
+export class Rigid {
+  gravity() {
+    this.y -= 1;
   }
 }
