@@ -5,6 +5,7 @@ let y;
 
 let acc = 0.5;
 
+const rigid = new Rigid();
 const pad = Pads.get();
 
 export class Player {
@@ -19,6 +20,7 @@ export class Player {
   draw() {
     Draw.circle(this.x, this.y, 32, Color.new(255, 255, 255, 128));
   }
+
   move(direction) {
     this.x += acc * direction;
   }

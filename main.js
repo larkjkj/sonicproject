@@ -4,8 +4,8 @@ const color_grey = Color.new(50, 50, 50, 128);
 
 const memory = System.getMemoryStats();
 const pad = Pads.get();
+
 const player = new Player();
-const solid = new Solid();
 
 while (true) {
   Screen.clear(color_grey);
