@@ -16,10 +16,17 @@ while (true) {
   player.draw();
 
   if (pad.pressed(Pads.LEFT)) {
-    player.move(-1);
+    player.moveX(-1);
   }
   if (pad.pressed(Pads.RIGHT)) {
-    player.move(1);
+    player.moveX(1);
+  }
+
+  if (pad.pressed(Pads.UP)) {
+    player.moveY(-1);
+  }
+  if (pad.pressed(Pads.DOWN)) {
+    player.moveY(1);
   }
 
   Screen.flip();
