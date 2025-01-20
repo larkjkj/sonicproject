@@ -2,64 +2,82 @@
 // Solid represents an solid object, that CANNOT BE MOVED, only collidable
 // Rigid represents an movable object, that can be moved, have self gravity, and physics
 
-export class Solid {
-  constructor(x, y, collision_width, collision_height, alpha) {
+export class Rigid {
+  constructor(x, y, w, h, grv) {
     x = 0;
     y = 0;
-    collision_width = 0;
-    collision_height = 0;
-    alpha = 0;
+    w = 0;
+    h = 0;
+    a = 0;
 
     this.x = x;
     this.y = y;
-    this.w = collision_width;
-    this.h = collision_height;
-    this.alpha = alpha;
+    this.w = w;
+    this.h = h;
+    this.grv = grv;
+  }
+
+  circle(x, y, radius, visible) {
+    if (visible) {
+      Draw.circle(x, y, radius, Color.new(255, 40, 40, 64));
+    }
+  }
+
+  square(x, y, w, h, visible) {
+    if (visible) {
+      Draw.square(x, y, w, h, Color.new(255, 40, 40, 64));
+    }
+  }
+
+  line(x, y, x2, x2, visible, rx) {
+    if (visible) {
+      Draw.line(x, y, x2, y2, Color.new(255, 40, 40, 64));
+    }
+  }
+}
+
+export class Solid {
+  constructor(x, y, w, h, a) {
+    x = 0;
+    y = 0;
+    w = 0;
+    h = 0;
+    a = 0;
+
+    this.x = x;
+    this.y = y;
+    this.w = w;
+    this.h = h;
+    this.alpha = a;
   }
 
   circle(x, y, radius, visible = 1) {
     if (visible) {
-      Draw.circle(x, y, radius, Color.new(255, 40, 40, 255));
+      Draw.circle(x, y, radius, Color.new(255, 40, 40, 64));
     }
   }
 
   square(x, y, w, h, visible = 1) {
     if (visible) {
-      Draw.square(x, y, w, h, Color.new(255, 40, 40, 255));
+      Draw.square(x, y, w, h, Color.new(255, 40, 40, 64));
     }
   }
 
   line(x, y, x2, x2, visible = 1) {
     if (visible) {
-      Draw.line(x, y, x2, y2, Color.new(255, 40, 40, 255));
+      Draw.line(x, y, x2, y2, Color.new(255, 40, 40, 64));
     }
   }
 }
 
-export class Rigid {
-  constructor(x, y, collision_width, collision_height, grv) {
-    x = 0;
-    y = 0;
-    collision_width = 0;
-    collision_height = 0;
-    alpha = 0;
+const solid = new Solid();
+const rigid = new Rigid();
 
-    this.x = x;
-    this.y = y;
-    this.w = collision_width;
-    this.h = collision_height;
-    this.grv = grv;
-  }
-
-  circle(x, y, w, h, alpha) {
-    Draw.square(x, y, w, h, Color.new(255, 40, 40, alpha));
-  }
-
-  square(x, y, w, h, alpha) {
-    Draw.square(x, y, w, h, Color.new(255, 40, 40, alpha));
-  }
-
-  line(x, y, x2, x2, alpha) {
-    Draw.line(x, y, x2, y2, Color.new(255, 40, 40, alpha));
-  }
+if (
+  rigid.x < solid.x + solid.w &&
+  rigid.x + rigid.w > solid.x &&
+  rigid.y < solid.y + solid.h &&
+  rigid.y + rigid.h > solid.y
+) {
+  print("colidiu");
 }
