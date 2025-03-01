@@ -23,16 +23,21 @@ export default class Sprite {
 		this.sheet.width = receivedW;
 		this.sheet.height = receivedH;
 
-		this.direction = width * this.direction;
+		this.direction = this.width * this.direction;
 		
 		this.sheet.draw(positionX, positionY);
+		
+		let loaded = this.sheet.ready();
+
+		if (loaded) {
+			print("Desenhado");
+			return 0;
+		}
 		return 0;
 	}
 	// DONT USE IT (IN PROGRESS)
-	Animation(frames) {
-		let numbers = Array.from({length: frames}, (_, i) => i).map(i => print(i))
-
-		print(numbers);
+	Animation(sheetpath, frames, receivedX, receivedY, receivedW, receivedH, positionX, positionY, direction) {
+		let numbers = Array.from({length: frames}, (_, i) => i).map(i => print(i)))
 	}
 }
 
